@@ -2,7 +2,7 @@ CREATE DATABASE XXXXX;
 
 ### Создадим таблицу и внесём в неё данные ###
 CREATE TABLE staff (
-	id INT UNSIGNED NOT NULL,
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
 	birthday DATE NULL,
@@ -16,4 +16,34 @@ VALUES
 (3, 'Игорь', 'Поздняков', '1985-01-01', TRUE),
 (3, 'Алексей', 'Соломонов', '1985-01-01', TRUE);
 ### и так далее ###
+
+### Создадим новую таблицу ###
+CREATE TABLE products (
+    id INT UNSIGNED NOT NULL,
+    category_id INT UNSIGNED NULL DEFAULT NULL,
+    name VARCHAR(100) NOT NULL,
+    count TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    price DECIMAL(10,2) NOT NULL DEFAULT 0.00);
+   
+### Создадим таблицы с уникальными индексами ###
+CREATE TABLE clients (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL, 
+    passport VARCHAR(10) NOT NULL,
+    UNIQUE KEY email (email),
+    UNIQUE KEY passport (passport) );
+  
+CREATE TABLE passports (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    series VARCHAR(4) NOT NULL,
+    number VARCHAR(6) NOT NULL,
+    state ENUM('active','expired') NOT NULL DEFAULT 'active',
+    UNIQUE KEY passport (series, number) );
+
+
+
+
 
