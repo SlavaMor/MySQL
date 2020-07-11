@@ -1,0 +1,19 @@
+CREATE DATABASE XXXXX;
+
+### Создадим таблицу и внесём в неё данные ###
+CREATE TABLE staff (
+	id INT UNSIGNED NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	birthday DATE NULL,
+	age TINYINT UNSIGNED NULL,
+	active BOOL NULL);   #BOOL for Windows -> TINYINT with 4 symbols
+  
+INSERT INTO staff (id, first_name, last_name, birthday, active)
+VALUES 
+(1, 'Евгений', 'Петров', '2000-10-10', TRUE),
+(2, 'Степан', 'Кузнецов', '1980-03-05', TRUE),
+(3, 'Игорь', 'Поздняков', '1985-01-01', TRUE),
+(3, 'Алексей', 'Соломонов', '1985-01-01', TRUE);
+### и так далее ###
+
